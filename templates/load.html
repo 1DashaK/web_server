@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{%block load %}
+    <h1 id="h_text">Загрузи уровень</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="txt"><p id="text">Выберите файл</p></label>
+            <input type="file" class="form-control-file" id="txt" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+{% endblock %}
