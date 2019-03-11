@@ -34,12 +34,16 @@ def main():
         return render_template('new_load.html')
 
 
-@app.route('/get_files', methods=['GET'])
-def get_files(num_file):
+@app.route('/len_db', methods=['GET'])
+def get_len():
     file = Level.query.all()
-    f = dict()
-    for i in file:
-        f[i.file_name] = i.file
+    return str(len(file))
+
+
+@app.route('/<int:level_id>', methods=['GET'])
+def get_files(level_id):
+    file = Level.query.filter_by(id=level_id).first()
+    f = file.file.decode('utf-8')
     return f
 
 
